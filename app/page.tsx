@@ -1,5 +1,4 @@
 "use client"
-import axios from "axios";
 import { useEffect, useState } from "react"
 import TaskCard from "@/components/TaskCard"
 
@@ -13,8 +12,9 @@ export default function HomePage() {
 //comment
   const getTasks = async () => {
     try {
-      const res = await axios.get("/api/tasks");
-      setTasks(res.data);
+      const res = await fetch("/api/tasks");
+      const data=await res.json()
+      setTasks(data)
     } catch (err) {
       console.error(err);
     }
@@ -22,7 +22,7 @@ export default function HomePage() {
 
   const handleDelete = async (id: string) => {
    
-    await axios.delete(`/api/tasks/${id}`);
+    await fetch(`/api/tasks/${id}`,{method:'DELETE'})
     getTasks();
   };
 
@@ -37,10 +37,14 @@ export default function HomePage() {
   const handleUpdate = async () => {
     if (!currentTaskId) return;
 
-    await axios.put(`/api/tasks/${currentTaskId}`, {
-      title: editTitle,
-      description: editDescription,
-      completed: editCompleted,
+    await fetch(`/api/tasks/${currentTaskId}`, {method:'put',  headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          title: editTitle,
+          description: editDescription,
+          completed: editCompleted,
+        }),
     });
 
     setShowEdit(false);

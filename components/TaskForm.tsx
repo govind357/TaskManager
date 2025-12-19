@@ -1,5 +1,5 @@
 
-"use client"
+
 import { useState } from "react"
 import axios from "axios"
 
@@ -9,8 +9,16 @@ export default function TaskForm() {
   const [message, setMessage] = useState("");
 
   const handleSubmit = async () => {
-    const response = await axios.post("/api/tasks", { title, description });
-
+ const response = await fetch("/api/tasks", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          title,
+          description,
+        }),
+      })
     if (response.status === 201) {
       setTitle("");
       setDescription("");
