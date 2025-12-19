@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import Task from "@/lib/taskmodel";
+import Task from "@/lib/taskModel";
 import { connectDB } from "@/lib/db";
 
 
