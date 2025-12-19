@@ -1,4 +1,3 @@
-"use client";
 
 interface TaskCardProps {
   _id: string;
@@ -7,7 +6,8 @@ interface TaskCardProps {
   completed?: boolean;
   onDelete: (_id: string) => void;
   onEdit: (_id: string) => void;
-}
+}    
+
 
 export default function TaskCard({
   _id,

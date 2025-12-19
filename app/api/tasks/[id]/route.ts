@@ -3,10 +3,7 @@ import Task from "@/lib/taskmodel";
 import { connectDB } from "@/lib/db";
 
 
-export async function DELETE(
-request: Request,
-  context: { params: Promise<{ id: string }> }
-) {
+export async function DELETE(request: Request, context:{ params: Promise<{ id: string }> }) {
   try {
     const { id } = await context.params; 
 
@@ -22,19 +19,12 @@ request: Request,
   }
 }
 
-export async function PUT(
- request: Request,
-  context: { params: Promise<{ id: string }> }
+export async function PUT(request: Request,  context: { params: Promise<{ id: string }> }
 ) {
   try {
     await connectDB();
-
     const { id } = await context.params;
-
-  
     const { title, description, completed } = await request.json();
-
-    
     const updatedTask = await Task.findByIdAndUpdate(
       id,
       { title, description, completed },
@@ -54,3 +44,4 @@ export async function PUT(
     );
   }
 }
+

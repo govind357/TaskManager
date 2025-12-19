@@ -13,9 +13,9 @@ export default function Navbar() {
         <Link href="/add" className="hover:underline">
           Add Task
         </Link>
-        <Link href="/about" className="hover:underline">
+        {/* <Link href="/about" className="hover:underline">
           About
-        </Link>
+        </Link> */}
       </div>
     </nav>
   );

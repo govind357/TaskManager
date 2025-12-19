@@ -21,12 +21,11 @@ export default function HomePage() {
   };
 
   const handleDelete = async (id: string) => {
-    const confirmed = window.confirm("Are you sure you want to delete this task?");
-  if (!confirmed) return;
+   
     await axios.delete(`/api/tasks/${id}`);
     getTasks();
   };
-//dfddfddfdfdfdfdfdf
+
   const handleEdit = (task: any) => {
     setCurrentTaskId(task._id);
     setEditTitle(task.title);
