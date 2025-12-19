@@ -1,7 +1,7 @@
 "use client"
-import axios from "axios";
-import { useEffect, useState } from "react";
-import TaskCard from "@/components/Taskcard";
+import axios from "axios"
+import { useEffect, useState } from "react"
+import TaskCard from "@/components/TaskCard"
 
 export default function HomePage() {
   const [tasks, setTasks] = useState<any[]>([]);

@@ -1,7 +1,7 @@
-import type { Metadata } from "next";
+import type { Metadata } from "next"
 
-import "./globals.css";
-import Navbar from "@/components/Navbar";
+import "./globals.css"
+import Navbar from "@/components/Navbar"
 
 
 
