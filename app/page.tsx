@@ -1,4 +1,4 @@
-"use client";
+"use client"
 import axios from "axios";
 import { useEffect, useState } from "react";
 import TaskCard from "@/components/Taskcard";
