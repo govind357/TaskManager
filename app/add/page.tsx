@@ -1,4 +1,4 @@
-import Taskform from '@/components/Taskform'
+import Taskform from '@/components/TaskForm'
 export default function AddTaskPage() {
   return (
     <div>
